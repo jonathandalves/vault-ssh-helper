@@ -1,0 +1,26 @@
+- name: Comment common-auth mechanism 
+  lineinfile:
+    firstmatch: yes
+    path: "/etc/pam.d/sshd"
+    regexp: "^@include common-auth"
+    line: "#@include common-auth"
+    state: present
+- name: Insert the vault-ssh-helper configuration for ssh auth
+  blockinfile:
+    path: "/etc/pam.d/sshd"
+    block: |
+      auth requisite pam_exec.so quiet expose_authtok log=/tmp/vaultssh.log /usr/local/bin/vault-ssh-helper -config=/etc/vault-ssh-helper.d/config.hcl
+      auth optional pam_unix.so not_set_pass use_first_pass nodelay
+    insertbefore: BOF
+    state: present
+- name: Change sshd configurations
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  with_items:
+    - { regexp: '^ChallengeResponseAuthentication', line: 'ChallengeResponseAuthentication yes' }
+    - { regexp: '^UsePAM', line: 'UsePAM yes' }
+    - { regexp: '^PasswordAuthentication', line: 'PasswordAuthentication no' }
+  notify:
+    - Restart sshd

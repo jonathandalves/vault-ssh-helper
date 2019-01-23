@@ -1,0 +1,6 @@
+---
+# defaults file for vagrant-ssh-helper
+vault_addr: https://vault:8200
+ssh_mount_point: ssh
+tls_skip_verify: !!str true
+allowed_roles: "*"

@@ -1,0 +1,9 @@
+---
+- name: Create directory for vault-ssh-help
+  file:
+    path: "/etc/vault-ssh-helper.d"
+    state: directory
+- name: Copy vault-ssh-helper configuration file
+  template:
+    src: config.hcl
+    dest: /etc/vault-ssh-helper.d/config.hcl

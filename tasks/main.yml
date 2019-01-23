@@ -1,0 +1,8 @@
+---
+- import_tasks: dependencies.yml
+- import_tasks: install.yml
+- import_tasks: configure.yml
+- import_tasks: setup-Debian.yml
+  when: ansible_os_family == "Debian"
+- import_tasks: setup-RedHat.yml
+  when: ansible_os_family == "RedHat"
