@@ -22,6 +22,26 @@ Outras variáveis que podem ser usadas na role (não obrigatórias)*:
 
 * *A descrição de como usar as opções foram baseadas na documentação disponível em https://github.com/hashicorp/vault-ssh-helper/blob/master/README.md#properties.
 
+## Para executar a role
+
+Você pode fazer o download do código através do binário ansible-galaxy:
+
+```
+# ansible-galaxy install jonathandalves.vault_ssh_helper
+```
+
+Segue sugestão para playbook referenciando as variáveis obrigatórias:
+
+```
+---
+- hosts: localhost
+  vars:
+  - vault_addr: https://vault:8200
+  - ssh_mount_point: ssh
+  roles:
+  - jonathandalves.vault_ssh_helper
+  ```
+
 # Atenção
 
 As configurações aplicadas nesta role interagem diretamente com o PAM, serviço de autenticação do sistema Linux.
