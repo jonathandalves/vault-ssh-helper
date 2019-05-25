@@ -32,6 +32,6 @@ Foram realizados testes desta role apenas nas seguintes distribuições:
 
 Para outras versões e distribuições (ou sistemas), execute testes em laboratório.
 
-# Informação do Autor
+# Informações do Autor
 
 Criado por [Jonathan Dantas Alves](https://www.linkedin.com/in/jonathandantasalves/).
