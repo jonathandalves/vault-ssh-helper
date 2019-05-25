@@ -30,7 +30,7 @@ Você pode fazer o download do código através do binário ansible-galaxy:
 # ansible-galaxy install jonathandalves.vault_ssh_helper
 ```
 
-Segue sugestão para playbook referenciando as variáveis obrigatórias:
+Segue uma sugestão para playbook referenciando as variáveis obrigatórias:
 
 ```
 ---
