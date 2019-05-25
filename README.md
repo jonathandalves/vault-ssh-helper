@@ -2,6 +2,10 @@
 
 Instala e configura o vaultt-ssh-helper para controle de conexões SSH através do Hashicorp Vault.
 
+![Linux Distro](https://img.shields.io/badge/platform-CentOS%20%7C%20Red%20Hat%20%7C%20Ubuntu-blue.svg)
+![Branch](https://img.shields.io/badge/Branch-Master-green.svg)
+[![Ansible Version](https://img.shields.io/badge/Ansible-2.7-green.svg)](https://www.ansible.com/)
+
 ## Configuração de variáveis
 
 As variáveis obrigatórias para utilizar a role são:
